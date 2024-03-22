@@ -1,14 +1,10 @@
-def count_words(sentence):
-    words = sentence.split()
-    word_counts = {}
-
-    for word in words:
-        word = word.strip('.,!?;:"')
-        word = word.lower()
-        word_counts[word]= word_counts.get(word,0) + 1
-
-    return word_counts
-
-sentence = "Hello, World! This is a test. Hello, World"
-word_count_dict = count_words(sentence)
-print(word_count_dict)
+def flatten_list(lst):
+    flattented = []
+    for item in lst:
+        if isinstance(item,list):
+            flattented.extend(flatten_list(item))
+        else:
+            flattented.append(item)
+    return flattented
+nested_list = [[1,2,[3]],4,[5,[6,7]]]
+print(flatten_list(nested_list))
